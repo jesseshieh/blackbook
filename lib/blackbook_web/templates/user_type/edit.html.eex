@@ -1,0 +1,5 @@
+<h1>Edit User Type</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.user_type_path(@conn, :update, @user_type)) %>
+
+<span><%= link "Back", to: Routes.user_type_path(@conn, :index) %></span>
