@@ -1,17 +1,8 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed and maintainability.</p>
+  <h1><%= gettext "Welcome to %{name}!", name: "Salon Lofts" %></h1>
+  <p></p>
 </section>
 
-<%= if @conn.assigns[:current_user] do %>
-  <li>
-    <%= link "Sign Out", to: Routes.session_path(@conn, :delete) %>
-  </li>
-<% else %>
-  <li>
-    <%= link "Sign in", to: Routes.session_path(@conn, :index) %>
-  </li>
-<% end %>
 
 <h1>Hello <%=%>!</h1>
   <span><%= link "Logout", to: Routes.session_path(@conn, :logout), method: :delete %></span>
