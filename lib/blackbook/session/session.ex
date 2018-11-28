@@ -23,9 +23,11 @@ defmodule Blackbook.Session do
     end
 
     def login(conn, user) do
+        IO.puts("++++")
+        IO.inspect(user)
+        IO.puts("++++")
         conn
         |> Guardian.Plug.sign_in(user)
-        |> assign(:current_user, user)
     end
 
     def logout(conn) do

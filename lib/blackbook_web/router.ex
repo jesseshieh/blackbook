@@ -13,14 +13,26 @@ defmodule BlackbookWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :authaccess do
+    plug Blackbook.Plugs.RequireAuth
+  end
+
+  pipeline :auth do
+    plug Blackbook.Auth.AuthAccessPipeline
+  end
+
   scope "/", BlackbookWeb do
     pipe_through :browser
 
-    get "/login", SessionController, :new
-    post "/login", SessionController, :create
-    delete "/logout", SessionController, :delete
+    get "/", SessionController, :index
+    post "/login", SessionController, :login
+    delete "/logout", SessionController, :logout
+  end
 
-    get "/", PageController, :index
+  scope "/", BlackbookWeb do
+    pipe_through [:browser, :auth]
+
+    get "/page", PageController, :index
 
     resources "/user_types", UserTypeController
     resources "/access_keys", AccessKeyController

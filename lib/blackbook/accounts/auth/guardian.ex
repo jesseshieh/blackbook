@@ -11,8 +11,8 @@ defmodule Blackbook.Auth.Guardian do
     end
 
     def resource_from_claims(claims) do
-        id = claims["sub"]
-        user = Accounts.get_user!(id)
+        user = claims["sub"]
+        |> Accounts.get_user!
         {:ok, user}
     end
 end
