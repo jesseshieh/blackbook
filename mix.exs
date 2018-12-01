@@ -5,7 +5,7 @@ defmodule Blackbook.MixProject do
     [
       app: :blackbook,
       version: "0.1.0",
-      elixir: "~> 1.5",
+      elixir: "~> 1.7.2",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -43,10 +43,11 @@ defmodule Blackbook.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:comeonin, "~> 4.0"},
+      {:comeonin, "~> 4.0", override: true},
       {:pbkdf2_elixir, "~> 0.12"},
       {:uuid, "~> 1.1"},
-      {:guardian, "~> 1.0"}
+      {:guardian, "~> 1.0"},
+      {:distillery, "~> 1.5.5"}
     ]
   end
 
